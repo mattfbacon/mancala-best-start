@@ -162,48 +162,6 @@ impl Board {
 	}
 }
 
-impl std::fmt::Display for Board {
-	fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-		/*
-		┌──┐┌──┬──┬──┬──┬──┬──┐┌──┐
-		│  ││12│12│12│12│12│12││  │
-		│22│┝━━┿━━┿━━┿━━┿━━┿━━┥│22│
-		│  ││12│12│12│12│12│12││  │
-		└──┘└──┴──┴──┴──┴──┴──┘└──┘
-		*/
-		write!(
-			formatter,
-			"\
-			┌──┐┌──┬──┬──┬──┬──┬──┐┌──┐\n\
-			│  ││{: >2}│{: >2}│{: >2}│{: >2}│{: >2}│{: >2}││  │\n\
-			│{: >2}│┝━━┿━━┿━━┿━━┿━━┿━━┥│{: >2}│\n\
-			│  ││{: >2}│{: >2}│{: >2}│{: >2}│{: >2}│{: >2}││  │\n\
-			└──┘└──┴──┴──┴──┴──┴──┘└──┘\n\
-			",
-			self.sides[1].bins[5],
-			self.sides[1].bins[4],
-			self.sides[1].bins[3],
-			self.sides[1].bins[2],
-			self.sides[1].bins[1],
-			self.sides[1].bins[0],
-			self.sides[1].mancala,
-			self.sides[0].mancala,
-			self.sides[0].bins[0],
-			self.sides[0].bins[1],
-			self.sides[0].bins[2],
-			self.sides[0].bins[3],
-			self.sides[0].bins[4],
-			self.sides[0].bins[5],
-		)
-	}
-}
-
-#[derive(Debug, Clone, Copy)]
-enum Player {
-	A,
-	B,
-}
-
 #[derive(Debug, Clone, Copy)]
 enum Bin {
 	A,
